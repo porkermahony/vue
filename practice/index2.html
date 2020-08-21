@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+    <input type="text" v-on:input="changeTitle">
+        <h1 v-once>{{ title }}</h1>
+        {{ title }}<br>
+        <p v-html='finishedLink'></p>
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'This is the first VueJs',
+                link: 'http://google.com',
+                finishedLink: '<a href="http>//google.com">Google</a>'
+            },
+            methods: {
+                changeTitle: function(event) {
+                    this.title = event.target.value
+                }
+            }
+        })
+    </script>
+</body>
+</html>
